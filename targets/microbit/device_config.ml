@@ -1,7 +1,9 @@
 (******************************************************************************)
 
 let default_arm_cxx_options = [ "-mcpu=cortex-m0"; "-mthumb";
-                                "-fno-exceptions"; "-fno-unwind-tables";
+                                "-g"; "-fno-exceptions"; "-fno-unwind-tables";
+                                "-O2"; "-g"; "-Wall"; "-Wl,-Os";
+                                "-std=c++11";
                                 "-fdata-sections"; "-ffunction-sections";
                                 "-O"; "-g"; "-Wall"; "-Wl,-Os";
                                 "-Wl,--gc-sections" ]
