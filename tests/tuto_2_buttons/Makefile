@@ -7,11 +7,11 @@ ATTY := /dev/tty.usbmodem1411
 all: $(TARGETS)
 
 $(TARGETS): $(SOURCES)
-	$(BIN)/omicrob -v $^ -mlopt -verbose -stack-size 32 -heap-size 32
+	$(BIN)/omicrob -device arduino-uno -v $^ -mlopt -verbose -stack-size 32 -heap-size 32
 
 flash: buttons.hex
 	#$(AVRDUDE) -c avr109 -P $(ATTY) -p ATmega32U4 -b 57600 -v -D -U flash:w:$<:e
-	$(BIN)/omicrob -flash -sudo $<
+	$(BIN)/omicrob -device arduino-uno -flash -sudo $<
 
 simul: buttons.elf
 	./$< '../../bin/omicrob_circuit_simulator circuit.txt'

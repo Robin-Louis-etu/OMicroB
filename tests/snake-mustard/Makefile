@@ -6,10 +6,10 @@ TARGETS := snake.byte snake.c snake.elf snake.avr snake.hex
 all: $(TARGETS)
 
 $(TARGETS): $(SOURCES)
-	$(BIN)/omicrob -no-flash-heap -no-flash-globals -v $^ -mlopt -verbose -stack-size 64 -heap-size 300 -arch 16
+	$(BIN)/omicrob -device arduino-uno -no-flash-heap -no-flash-globals -v $^ -mlopt -verbose -stack-size 64 -heap-size 300 -arch 16
 
 flash: snake.hex
-	$(BIN)/omicrob -flash -sudo $<
+	$(BIN)/omicrob -device arduino-uno -flash -sudo $<
 
 simul: snake.elf
 	./$< '../../bin/omicrob_circuit_simulator circuit.txt'

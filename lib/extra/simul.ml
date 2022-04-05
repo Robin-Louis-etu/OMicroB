@@ -56,6 +56,7 @@ let char_of_port port =
 
 let port_of_char c =
   match c with
+    | 'A' | 'a' -> PORTA
     | 'B' | 'b' -> PORTB | 'C' | 'c' -> PORTC
     | 'D' | 'd' -> PORTD | 'E' | 'e' -> PORTE | 'F' | 'f' -> PORTF
     | 'G' | 'g' -> SPDR
@@ -86,7 +87,7 @@ let index_of_port port =
 
 let port_of_index ind =
   match ind with
-    | 1 -> PORTB | 2 -> PORTC | 3 -> PORTD | 4 -> PORTE | 5 -> PORTF | 6 -> SPDR
+    0 -> PORTA | 1 -> PORTB | 2 -> PORTC | 3 -> PORTD | 4 -> PORTE | 5 -> PORTF | 6 -> SPDR
     | _ -> invalid_arg "Simul.port_of_index"
 ;;
 
