@@ -8,13 +8,13 @@
 
 value caml_microbit_print_string(value s) {
   #ifdef __OCAML__
-  microbit_print_string(String_val(s));
+  //microbit_print_string(String_val(s));
   #else
   int n = string_length(s); int i;
   char buf[n+1];
   for(i = 0; i < n; i++) buf[i] = String_field(s, i);
   buf[n] = '\0';
-  microbit_print_string(buf);
+  //microbit_print_string(buf);
   #endif
   return Val_unit;
 }
@@ -26,22 +26,22 @@ value caml_microbit_write_pixel(value x, value y, value l) {
 
 value caml_microbit_print_image(value s) {
   #ifdef __OCAML__
-  microbit_print_image(String_val(s));
+  //microbit_print_image(String_val(s));
   #else
   int n = string_length(s); int i;
   char buf[n+1];
   for(i = 0; i < n; i++) buf[i] = String_field(s, i);
   buf[n] = '\0';
-  microbit_print_image(buf);
+  //microbit_print_image(buf);
   #endif
   return Val_unit;
 }
 
 value caml_microbit_clear_screen() {
-  microbit_clear_screen();
+  //microbit_clear_screen();
   return Val_unit;
 }
-
+#if 0
 value caml_microbit_button_is_pressed(value b) {
   return Val_bool(microbit_button_is_pressed(Int_val(b)));
 }
@@ -182,4 +182,5 @@ value caml_microbit_spi_transmit(value c) {
   return Val_int(microbit_spi_transmit(Int_val(c)));
 }
 
+#endif
 #endif

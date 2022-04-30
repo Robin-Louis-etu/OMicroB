@@ -16,3 +16,5 @@
 .vscode/
 node_modules/
 config.ml
+/.vs
+/targets/microbit/.vs

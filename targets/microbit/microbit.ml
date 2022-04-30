@@ -4,7 +4,7 @@
 (*                                                                             *)
 (*                    Basile Pesin, Sorbonne Université                        *)
 (*******************************************************************************)
-
+(*
 type level = LOW | HIGH
 type _level = level
 
@@ -57,7 +57,7 @@ let analog_read p =
 external delay: int -> unit = "caml_delay" [@@noalloc]
 
 external millis : unit -> int = "caml_millis" [@@noalloc]
-
+*)
 module Screen = struct
   let init () = ()
   external print_string: string -> unit = "caml_microbit_print_string" [@@noalloc]
@@ -80,7 +80,7 @@ module Screen = struct
     if x < 0 || x > 4 || y < 0 || y > 4 then invalid_arg "write_pixel";
     unsafe_set_pixel x y l
 end
-
+(*
 module Serial = struct
   let init () = ()
   external write_char: char -> unit = "caml_microbit_serial_write" [@@noalloc]
@@ -96,7 +96,7 @@ module Serial = struct
       s := (!s^(String.make 1 !c))
     done; String.sub !s 0 (String.length !s - 1)
 end
-
+*)
 (* module Accelerometer = struct
  *   external x: unit -> int = "caml_microbit_accelerometer_x" [@@noalloc]
  *   external y: unit -> int = "caml_microbit_accelerometer_y" [@@noalloc]
