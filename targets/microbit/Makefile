@@ -3,11 +3,17 @@ include ../../etc/Makefile.conf
 LIBMICROBIT := $(LIB)/targets/microbit
 
 MODULES := microbit
+SUBMODULES := microbitPins
 
 MLS := $(MODULES:=.ml)
 MLIS := $(MODULES:=.mli)
 CMOS := $(MODULES:=.cmo)
 CMIS := $(MODULES:=.cmi)
+
+SMLS := $(SUBMODULES:=.ml)
+SMLIS := $(SUBMODULES:=.mli)
+SCMOS := $(SUBMODULES:=.cmo)
+SCMIS := $(SUBMODULES:=.cmi)
 
 LIB_MLS  := $(foreach ml,$(MLS),$(LIBMICROBIT)/$(ml)) \
 						$(foreach ml,$(SMLS),$(LIBMICROBIT)/$(ml))
@@ -30,6 +36,12 @@ microbit.cmi: microbit.mli
 
 microbit.cmo: microbit.ml microbit.cmi
 	CAMLLIB=$(LIB) $(OCAMLC) -c -w @a $< -o $@
+
+$(SCMIS): %.cmi: %.mli
+	CAMLLIB=$(LIB) $(OCAMLC) -c -w @a $^ -o $@
+
+$(SCMOS): %.cmo: %.ml
+	CAMLLIB=$(LIB) $(OCAMLC) -c -w @a $^ -o $@
 
 $(LIBMICROBIT):
 	mkdir -p $@

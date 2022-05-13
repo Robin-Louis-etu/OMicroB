@@ -1,4 +1,3 @@
-
 (* Tools *)
 
 let int_of_hex1 c =

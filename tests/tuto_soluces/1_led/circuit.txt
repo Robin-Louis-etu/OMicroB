@@ -1,4 +1,4 @@
-window width=100 height=100 bgcolor=lightgray title="led"
+window width=800 height=300 bgcolor=lightgray title="led"
 
 led x=15 y=15 radius=5 pin=PIN9 color=blue inverse=true
 led x=15 y=32 radius=5 pin=PIN10 color=red inverse=true

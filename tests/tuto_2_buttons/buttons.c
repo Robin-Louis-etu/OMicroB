@@ -124,8 +124,8 @@ PROGMEM value const ocaml_initial_stack[OCAML_STACK_INITIAL_WOSIZE] = {
   /* 1 */  Val_int(1),
   /* 2 */  Val_int(8),
   /* 3 */  Val_int(7),
-  /* 4 */  Val_int(11),
-  /* 5 */  Val_int(9),
+  /* 4 */  Val_int(9),
+  /* 5 */  Val_int(11),
   /* 6 */  Val_int(10)
 };
 

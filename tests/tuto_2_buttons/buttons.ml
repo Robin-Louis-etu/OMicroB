@@ -1,8 +1,8 @@
 open Avr
 
 let r = PIN10
-let g = PIN9 
-let b = PIN11
+let g = PIN11 
+let b = PIN9
 let button_A = PIN7
 let button_B = PIN8 
 

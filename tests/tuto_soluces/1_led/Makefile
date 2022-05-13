@@ -6,11 +6,11 @@ TARGETS := led.byte led.c led.elf led.avr led.hex
 all: $(TARGETS)
 
 $(TARGETS): $(SOURCES)
-	$(BIN)/omicrob -device arduino_mega_2560  -v $^ -mlopt -verbose -stack-size 64 -heap-size 300 -arch 32
+	$(BIN)/omicrob -device arduino-mega  -v $^ -mlopt -verbose -stack-size 64 -heap-size 300 -arch 32
 
 
 flash: led.hex
-	$(BIN)/omicrob -device arduino_mega_2560 -flash -sudo $<
+	$(BIN)/omicrob -device arduino-mega -flash -sudo $<
 
 simul: led.elf
 	./$< '../../../bin/omicrob_pin_simulator' '../../../bin/omicrob_circuit_simulator circuit.txt'
